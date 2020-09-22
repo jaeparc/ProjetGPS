@@ -1,7 +1,7 @@
 <?php include("class_modif.php"); 
     session_start();
     $modif = new modif;
-    if(isset($_POST['modifierUser'])){
+    if(isset($_POST['modifierUser'])){ // Si on clique sur le submit du formulaire
         if(!isset($_POST['nvxMdp'])){
             $_POST['nvxMdp'] = false;
         }
@@ -10,7 +10,7 @@
 ?>
 
 <script type="text/javascript">
-    function displayMdp(){
+    function displayMdp(){ // Fonction exécutée pour afficher ou  non les champs destinés à changer de mot de passe
         var divMdp = document.getElementById("champMdp");
         var checkMdp = document.getElementById("nvxMdp");
         if(checkMdp.checked == false){
@@ -37,7 +37,7 @@
         <div class="nav-wrapper">
             <a href="index.php" class="brand-logo"><i class="material-icons">directions_boat</i>GeoBoat</a>
             <ul id="nav-mobile" class="right">
-                <?php if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){ ?>
+                <?php if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){ //Afficher ou non les options du header en fonction de si l'user est connecté ?>
                     <li><a href="tableau_de_bord.php">Tableau de bord</a></li>
                     <li><a href="">Documentation</a></li>
                     <?php
@@ -54,7 +54,7 @@
     </nav>
     <div class="white container z-depth-3" style="min-height:50vh;">
         <div class="container" style="margin-top : 10%; padding-top : 5%; padding-bottom : 5%; margin-bottom : 10%;">
-            <?php if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){ ?>
+            <?php if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){ //Afficher ou non le contenu de la page en fonction de si l'user est connecté sinon afficher erreur 403 ?>
                 <div class="center-align">
                     <h5>Modifier mon compte</h5>
                 </div>

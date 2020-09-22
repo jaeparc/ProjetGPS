@@ -4,7 +4,7 @@
         private $_bdd;
 
         public function __construct(){
-            $this->_bdd = new PDO('mysql:host=localhost; dbname=geoboat; charset=utf8', 'root', '');
+            $this->_bdd = new PDO('mysql:host=192.168.64.147; dbname=geoboat; charset=utf8', 'root', 'root');
         }
 
         public function bienvenueUser($iduser){ //Fonction servant à afficher le message de bienvenue en fonction du prénom de l'utilisateur connecté
@@ -83,7 +83,7 @@
             }
         }
 
-        public function ajouterBato($nom, $marque, $type,$id){ //
+        public function ajouterBato($nom, $marque, $type,$id){ //Fonction servant à ajouter un bateau
             $requeteAjoutBato = $this->_bdd->query("INSERT INTO `bateau`(`id_bateau`, `nom`, `marque`, `type`, `vitesse`, `longitude`, `latitude`) VALUES (NULL,'".$nom."','".$marque."','".$type."',NULL,NULL,NULL)");
             $id_bateau = $this->_bdd->lastInsertId();
             $requeteAjoutAssoc = $this->_bdd->query("INSERT INTO `assoc_bateau-user`(`id_user`,`id_bateau`) VALUES ('".$id."','".$id_bateau."')");

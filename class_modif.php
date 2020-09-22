@@ -4,7 +4,7 @@
         private $_bdd;
     
         public function __construct(){
-            $this->_bdd = new PDO('mysql:host=localhost; dbname=geoboat; charset=utf8', 'root', '');
+            $this->_bdd = new PDO('mysql:host=192.168.64.147; dbname=geoboat; charset=utf8', 'root', '');
         }
         
         public function champUser($iduser){ //Fonction affichant le formulaire prérempli avec les données de l'utilisateur

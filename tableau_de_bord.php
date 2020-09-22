@@ -2,14 +2,14 @@
     session_start();
     include("class_tablo2bord.php"); 
     $tablo2bord = new tablo2bord;
-    if(isset($_POST['submitBoat'])){
+    if(isset($_POST['submitBoat'])){ //Si l'utilisateur clique sur le submit du formulaire d'ajout
         $tablo2bord->ajouterBato($_POST['nomBato'],$_POST['marqueBato'],$_POST['typeBato'],$_SESSION['id']);
     }
 ?>
 
 <script type="text/javascript">
 
-    function displayAddBoat(){
+    function displayAddBoat(){ //Fonction exécutée si l'utilisateur clique sur ajouter un bateau afin d'afficher le formulaire d'ajout
         var divButton = document.getElementById("noBoat");
         var addForm = document.getElementById("formulaire");
         divButton.style.display = "none";
@@ -32,7 +32,7 @@
         <div class="nav-wrapper">
             <a href="" class="brand-logo"><i class="material-icons">directions_boat</i>GeoBoat</a>
             <ul id="nav-mobile" class="right">
-                <?php if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){ ?>
+                <?php if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){ //Afficher ou non les options du header en fonction de si l'user est connecté?>
                     <li class="active"><a href="">Tableau de bord</a></li>
                     <li><a href="">Documentation</a></li>
                     <?php
@@ -49,7 +49,7 @@
     </nav>
     <div class="white container z-depth-3" style="min-height:50vh;">
         <div style="margin-top:10%;padding-top:5%;">
-            <?php if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){ ?>
+            <?php if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){ //Afficher ou non le contenu de la page en fonction de si l'user est connecté sinon afficher erreur 403?>
             <div class="row">
                 <div class="col s6 center-align">
                     <?php $tablo2bord->bienvenueUser($_SESSION['id']); ?>

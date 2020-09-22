@@ -21,7 +21,7 @@
                 return "champInvalid";
     
             }else {
-                if (filter_var($this->_email, FILTER_VALIDATE_EMAIL)) {
+                if (filter_var($this->_email, FILTER_VALIDATE_EMAIL)) { //Verification si l'email est valide
                     $this->sendMail($this->_message);
 
                     return "emailSend";

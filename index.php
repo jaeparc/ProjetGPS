@@ -21,14 +21,13 @@
 </script>
 
 <?php
-//  A commenter ! 
     include("class_register.php");
     include("class_login.php");
-    if(isset($_POST['submitRegister'])){
+    if(isset($_POST['submitRegister'])){ //Si on clique sur le submit du form d'inscription
         $register = new Register($_POST['emailRegister'], $_POST['mdpRegister'], $_POST['mdpconfirmRegister'], $_POST['nom'], $_POST['prenom']);
         $testRegister = $register->tests();
     }
-    if(isset($_POST['submitLogin'])){
+    if(isset($_POST['submitLogin'])){ //Si on clique sur le submit du form de connexion
         $login = new Login($_POST['emailLogin'], $_POST['mdpLogin']);
         $testLogin = $login->tests();
     }
@@ -61,7 +60,7 @@
                     </div>
                     <div class="col s6">
                             <?php
-                                if(isset($testRegister)){
+                                if(isset($testRegister)){ //Si il y a une erreur dans le formulaire, on raffiche le formulaire en cours de remplissage
                                     echo("<div id='loginForm' style='display : none;'>");
                                 }
                                 else{
@@ -70,7 +69,7 @@
                             ?>
                                 <h5>Se connecter</h5>
                                 <?php
-                                    if(isset($testLogin)){
+                                    if(isset($testLogin)){ // Si erreur on affiche le message d'erreur
                                         $login->erreur($testLogin);
                                     }
                                 ?>
@@ -98,7 +97,7 @@
                                 </form>
                             </div>
                             <?php
-                                if(isset($testRegister)){
+                                if(isset($testRegister)){ //Si il y a une erreur dans le formulaire, on raffiche le formulaire en cours de remplissage
                                     echo("<div id='registerForm' style='display : block;'>");
                                 }
                                 else{
@@ -107,7 +106,7 @@
                             ?>
                                 <h5>S'inscrire</h5>
                                 <?php
-                                    if(isset($testRegister)){
+                                    if(isset($testRegister)){ // Si erreur on affiche le message d'erreur
                                         $register->erreur($testRegister);
                                     }
                                 ?>

@@ -18,7 +18,7 @@ if(isset($_POST['submitMail'])){
     <body style="background-image: url('images/background.jpg');background-attachment: fixed;background-position: center center;">
         <nav>
             <div class="nav-wrapper">
-                <?php if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){
+                <?php if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){ //Si on est connecté changer l'adresse du bouton logo
                     echo "<a href='tableau_de_bord.php' class='brand-logo'><i class='material-icons'>directions_boat</i>GeoBoat</a>";
                  }
                  else{
@@ -26,7 +26,7 @@ if(isset($_POST['submitMail'])){
                  } ?>
                 <ul id="nav-mobile" class="right">
                     <?php 
-                    if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){ ?>
+                    if(isset($_SESSION['logged']) && $_SESSION['logged'] == true){ //Changer les options affichées dans le header selon si on est connecté ou non ?>
                         <li><a href="tableau_de_bord.php">Tableau de bord</a></li>
                         <li><a href="">Documentation</a></li>
                         <?php

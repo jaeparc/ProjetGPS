@@ -4,7 +4,7 @@ class bateau //Class pour les bateaux dans la page admin
     private $_bdd;
 
     public function __construct(){
-        $this->_bdd = new PDO('mysql:host=localhost; dbname=geoboat; charset=utf8', 'root', '');
+        $this->_bdd = new PDO('mysql:host=192.168.64.147; dbname=geoboat; charset=utf8', 'root', '');
     }
     public function afficherUser() //Fonction permettant d'afficher les utilisateurs dans le tableau
     {
@@ -31,7 +31,7 @@ class bateau //Class pour les bateaux dans la page admin
                         <th>Marque</th>
                         <th>Type</th>
                         ";
-            if(!empty($donneesBateau['vitesse'])){
+            if(!empty($donneesBateau['vitesse'])){ //Si le bateau n'a pas de données entrées dans cette colonne alors elle n'apparait
                 echo "  <th>Vitesse</th>";
             }
             if(!empty($donneesBateau['longitude'])){

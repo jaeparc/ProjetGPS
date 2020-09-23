@@ -4,7 +4,7 @@
         private $_bdd;
 
         public function __construct(){
-            $this->_bdd = new PDO('mysql:host=192.168.64.147; dbname=geoboat; charset=utf8', 'root', 'root');
+            $this->_bdd = new PDO('mysql:host=192.168.64.163; dbname=geoboat; charset=utf8', 'admin', 'root');
         }
 
         public function bienvenueUser($iduser){ //Fonction servant à afficher le message de bienvenue en fonction du prénom de l'utilisateur connecté

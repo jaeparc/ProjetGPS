@@ -11,7 +11,7 @@
         public function tests(){ //Fonction vérifiant si les champs sont remplis correctement
             if (filter_var($this->_email, FILTER_VALIDATE_EMAIL)) {
                 if(!empty($this->_mdp)){
-                    $bdd = new PDO('mysql:host=192.168.64.147; dbname=geoboat; charset=utf8', 'root', '');
+                    $bdd = new PDO('mysql:host=192.168.64.163; dbname=geoboat; charset=utf8', 'admin', 'root');
                     $requeteUser = $bdd->prepare("SELECT * FROM user WHERE email = ? AND password = ?");
                     $requeteUser->execute(array($this->_email, $this->_mdp));
                     $userExist = $requeteUser->rowCount();

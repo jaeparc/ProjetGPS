@@ -19,7 +19,7 @@ class Register{ //Class pour l'inscription
             if(!empty($this->_mdp)){
                 if(!empty($this->_nom) && !empty($this->_prenom)){
                     if($this->_mdp == $this->_mdpConfirm){
-                        $bdd = new PDO('mysql:host=192.168.64.147 dbname=geoboat; charset=utf8', 'root', '');
+                        $bdd = new PDO('mysql:host=192.168.64.163; dbname=geoboat; charset=utf8', 'admin', 'root');
                         $requeteMail = $bdd->prepare("SELECT * FROM user WHERE email = ?");
                         $requeteMail->execute(array($this->_email));
                         $userExist = $requeteMail->rowCount();
